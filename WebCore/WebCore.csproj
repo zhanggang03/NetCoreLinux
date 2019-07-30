@@ -10,6 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="dockerfile">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="restart.sh">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
