@@ -6,4 +6,6 @@ COPY . /app
 
 EXPOSE 5000
 
+VOLUME ["/app/logfile"]
+
 ENTRYPOINT ["dotnet","WebCore.dll"]
