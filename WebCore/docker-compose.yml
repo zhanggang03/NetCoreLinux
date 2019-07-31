@@ -1,0 +1,34 @@
+version: "2.0"
+services: 
+   mywebcore1: 
+      container_name: webcore1
+      ports: 
+      - 5000:5000
+      volumes: 
+      - /var/log/webcore/t1:/app/logfile
+      image: coreweb:v1.0
+      restart: always
+      #build: .
+
+   mywebcore2: 
+      container_name: webcore2
+      ports: 
+      - 5001:5000
+      volumes: 
+      - /var/log/webcore/t2:/app/logfile
+      image: coreweb:v1.0
+      restart: always
+
+   mynginx: 
+      container_name: webcorenginx
+      ports: 
+      - 82:80
+      volumes: 
+      - /mnt/hgfs/Share/nginx/www:/usr/share/nginx/html
+      - /mnt/hgfs/Share/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - /mnt/hgfs/Share/nginx/log:/var/log/nginx
+      image: nginx:latest
+      depends_on: 
+      - mywebcore1
+      - mywebcore2
+      restart: always

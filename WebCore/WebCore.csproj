@@ -28,6 +28,9 @@
     <None Update="dockerfile">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="docker-compose.yml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="nginx\dockerfile">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
