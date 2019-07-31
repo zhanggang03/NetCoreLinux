@@ -16,12 +16,21 @@ namespace WebCore.Controllers
         {
         }
 
+        static int count = 0;
+
         [HttpGet,Route("GetValues/{value}")]
         [Description("测试使用")]
         public string GetValues(string value)
         {
+            count++;
+            var headers = HttpContext.Request.Headers;
             Logger.Info(value);
-            return value;
+            string str = "Host:" + headers["Host"];
+            str += "  ||  X-Real-IP:" + headers["X-Real-IP"];
+            str += "  ||  X-Forwarded-For:" + headers["X-Forwarded-For"];
+            str += "  ||  value:" + value;
+            str += "  ||  Count:" + count.ToString(); ;
+            return str;
         }
     }
 }

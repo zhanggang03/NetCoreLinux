@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="logfile\**" />
+    <Content Remove="logfile\**" />
+    <EmbeddedResource Remove="logfile\**" />
+    <None Remove="logfile\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
@@ -19,6 +26,9 @@
 
   <ItemGroup>
     <None Update="dockerfile">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="nginx\dockerfile">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="restart.sh">
