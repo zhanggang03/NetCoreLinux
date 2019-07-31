@@ -26,7 +26,7 @@ services:
       volumes: 
       - /mnt/hgfs/Share/nginx/www:/usr/share/nginx/html
       - /mnt/hgfs/Share/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
-      - /mnt/hgfs/Share/nginx/log:/var/log/nginx
+      - /mnt/hgfs/Share/nginx/logs:/var/log/nginx
       image: nginx:latest
       depends_on: 
       - mywebcore1
