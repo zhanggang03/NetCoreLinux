@@ -1,0 +1,2 @@
+# NetCoreLinux
+NetCore  in  Linux 
