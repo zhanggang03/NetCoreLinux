@@ -1,0 +1,16 @@
+stages:
+- name: 发布程序
+  steps:
+  - runScriptConfig:
+      image: microsoft/dotnet:2.2-sdk
+      shellScript: |-
+        cd src
+        dotnet publish -c Release -o publish
+- name: 构建镜像
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./WebCore/Dockerfile
+      buildContext: .
+      tag: zg/app1
+timeout: 60
+notification: {}
